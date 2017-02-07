@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>菊花缠</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style/main.css?4156415">
+    <meta name="x5-fullscreen" content="true">
+    <meta http-equiv="pragma" content="no-cache">
+    <!-- <meta name="viewport" content="width=device-width"> -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+</head>
+
+<body>
+    <div onclick="javascript:location.replace('index.html?'+Math.random()*1000)" style="position: fixed;z-index: 1000;width: 100px;height: 50px;background:red;top:50px;">reload</div>
+    <div class="state" style="position:fixed;bottom:0;width: 100%; text-align: center; color: black;z-index: 2000;">状态
+    </div>
+    <div id="main">
+        <div id="loading">
+            <img class="logo" src="" data-img="images/logo.png">
+            <div id="other">
+                <img src="images/game_logo.png?" data-img="images/game_logo.png">
+            </div>
+            <div class="progress">
+                <div class="progress_img">
+                    <img class="left" src="" data-img="images/loading_progress_left.png">
+                    <img class="right" src="" data-img="images/loading_progress_right.png">
+                    <img class="heart" src="" data-img="images/loading_progress_success.png">
+                </div>
+                <div id="progress_bar">
+                    <div id="percent"></div>
+                </div>
+            </div>
+        </div>
+        <div id="canvasPanel">
+            <canvas id="canvas"></canvas>
+            <canvas id="background"></canvas>
+        </div>
+        <div id="btnBox">
+            <div class="btnBox">
+                <button id="beginBtn">开始游戏</button>
+            </div>
+        </div>
+        <div id="wechat">
+            <div class="imgbox">
+                <img src="" data-img="images/game_url.png">
+                <p>请用微信扫描打开</p>
+            </div>
+        </div>
+        <div id="result" class="result">
+            <!-- <div class="logobox"> -->
+            <div class="fail">
+                <div class="logobox">
+                    <img class="logo" src="" data-img="images/game_logo.png">
+                </div>
+                <!-- 
+                <div class="titlebox">
+                    <img class="title" src="" data-img="images/result_fail_title.png">
+                </div> -->
+                <div class="bottom">
+                    <img class="bottom" src="" data-img="images/result_bottom.png">
+                </div>
+                <div class="imgbox">
+                    <div class="content">
+                    </div>
+                </div>
+            </div>
+            <div class="succ">
+                <div class="logobox">
+                    <img class="logo" src="" data-img="images/game_logo.png">
+                </div>
+                <!-- <div class="titlebox"> -->
+                <!-- <img class="title" src="" data-img="images/result_succ_title.png"> -->
+                <!-- </div> -->
+                <div class="bottom">
+                    <img class="bottom" src="" data-img="images/result_succ_bottom.png">
+                </div>
+            </div>
+        </div>
+        <div class="share">
+            <div class="content">
+                <img src="" alt="" class="close" data-img="images/close.png">
+                <img class="wechat" src="images/share_wechat_icon.jpg" alt="" data-img="images/share_wechat_icon.jpg">
+                <p>扫码窥“CAO次元”</p>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="reload" style="position: fixed; bottom:20px; left: 45%;z-index: 1000;">
+        <a href="javascript:;" onclick="location.href=" http://192.168.2.220/ggbondhome/caodim/activity/flower/location.href " style=" background: blue; color: red; ">reload</a>
+    </div> -->
+    <audio id="audio " src="audio/audio.mp3 "></audio>
+    <script type="text/javascript " src="scripts/jquery-1.11.0.min.js?4641615561 "></script>
+    <script type="text/javascript " src="scripts/main.js?4641615561 "></script>
+    <script type="text/javascript " src="scripts/loading.js?4641615561 "></script>
+    <script type="text/javascript " src="scripts/music.js?4641615561 "></script>
+    <script type="text/javascript " src="scripts/background.js?4641615561 "></script>
+    <script type="text/javascript " src="scripts/cloud.js?4641615561 "></script>
+    <script type="text/javascript " src="scripts/stone.js?4641615561 "></script>
+    <script type="text/javascript " src="scripts/cactus.js?4641615561 "></script>
+    <script type="text/javascript " src="scripts/daisy.js?4641615561 "></script>
+    <script type="text/javascript " src="scripts/player.js?4641615561 "></script>
+    <script type="text/javascript " src="scripts/score.js?4641615561 "></script>
+    <script type="text/javascript ">
+    window.onload = function() {
+        // alert();
+    };
+    $(function() {
+        $('img').each(function(index) {
+            $(this).attr('src', $(this).attr('data-img') + '?ran' + 10000 * Math.random());
+            if (index + 1 == $('img').length) {
+
+            }
+        })
+        $('.share .close').click(function() {
+            $('.share').hide();
+        })
+        $('#beginBtn').click(function() {
+            $('#btnBox').fadeOut();
+            Flower.observer.publish('game-begin');
+        })
+    });
+    </script>
+</body>
+
+</html>
